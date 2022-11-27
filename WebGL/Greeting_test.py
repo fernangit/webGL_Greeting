@@ -17,10 +17,13 @@ def playSound(soundfile):
     pygame.mixer.music.play(1)              # 音楽の再生回数(1回)
 
 def changeMotion():
+    #フルスクリーン
+    keyboard.press_and_release('x')
+    time.sleep(1)
     while(True):
         #モーション変更
         print('change motion')
-        keyboard.press_and_release('1')
+        keyboard.press_and_release('f2')
         winsound.PlaySound("アカリがやってきたぞっ.wav", winsound.SND_FILENAME)
 #        playsound('アカリがやってきたぞっ.wav')
 #        playSound('アカリがやってきたぞっ.wav')
