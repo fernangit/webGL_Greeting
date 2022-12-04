@@ -32,7 +32,7 @@ def changeMotion():
         print('change motion')
 #        keyboard.press_and_release('f2')
 #        pyautogui.hotkey('f2')
-        thread = threading.Thread(target=setMotion, args=(1.5,'f2'))
+        thread = threading.Thread(target=setMotion, args=(1.5,'6'))
         thread.start()
 #        winsound.PlaySound("アカリがやってきたぞっ.wav", winsound.SND_FILENAME)
         playsound('アカリがやってきたぞっ.wav')
