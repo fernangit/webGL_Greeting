@@ -1,10 +1,26 @@
 #https://aiacademy.jp/media/?p=57
 #http://localhost:8000/
 from flask import Flask
+
 app = Flask(__name__, static_folder='.', static_url_path='')
+
 @app.route('/')
 def index():
     return app.send_static_file('index.html')
+
+@app.route('/StreamingAssets/Utterance', methods=['POST'])
+def updateScore():
+    print('post');
+    
+    filename = 'StreamingAssets/Utterance/utter.txt'
+    utterance = request.form['utterance']
+    print(filename);
+    print(utterance);
+    with open(filename, mode='w') as fout:
+        fout.write(utterance)
+    print('writed!');
+        
+    return utterance
 
 def startServer(url, pnum):
     app.run(host=url, port=pnum, debug=True)
