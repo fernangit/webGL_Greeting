@@ -7,5 +7,4 @@ def startBrowser(url):
       
 if __name__ == '__main__':
     startBrowser('http://localhost:8000')
-#    result = subprocess.run('chromium-browser http://localhost:8000 --disable-gpu', shell=True)
-#    result = subprocess.run('chromium-browser http://localhost:8000 --no-sandbox', shell=True)
+#    result = subprocess.run('chromium-browser --disable-gpu', shell=True)
