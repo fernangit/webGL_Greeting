@@ -18,6 +18,14 @@ def updateUtter():
     print(utterance);
     with open(filename, mode='w') as fout:
         fout.write(utterance)
+
+    filename = 'StreamingAssets/Utterance/score.txt'
+    score = request.form['score']
+    print(filename);
+    print(score);
+    with open(filename, mode='w') as fout:
+        fout.write(score)
+
     print('writed!');
         
     return utterance
