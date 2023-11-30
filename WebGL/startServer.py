@@ -10,24 +10,38 @@ def index():
 
 @app.route('/StreamingAssets/Utterance', methods=['POST'])
 def updateUtter():
-    print('post');
+    print('post')
     
     filename = 'StreamingAssets/Utterance/utter.txt'
     utterance = request.form['utterance']
-    print(filename);
-    print(utterance);
+    print(filename)
+    print(utterance)
     with open(filename, mode='w', encoding='utf-8') as fout:
         fout.write(utterance)
 
     filename = 'StreamingAssets/Utterance/score.txt'
     score = request.form['score']
-    print(filename);
-    print(score);
+    print(filename)
+    print(score)
     with open(filename, mode='w', encoding='utf-8') as fout:
         fout.write(score)
 
-    print('writed!');
+    filename = 'StreamingAssets/Utterance/message.txt'
+    message = request.form['message']
+    print(filename)
+    print(message)
+    with open(filename, mode='w', encoding='utf-8') as fout:
+        fout.write(message)
         
+    filename = 'StreamingAssets/Utterance/response.txt'
+    response = request.form['response']
+    print(filename)
+    print(response)
+    with open(filename, mode='w', encoding='utf-8') as fout:
+        fout.write(response)
+
+    print('writed!')
+
     return utterance
 
 def startServer(url, pnum):
