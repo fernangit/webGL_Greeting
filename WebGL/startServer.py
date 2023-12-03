@@ -1,6 +1,8 @@
 #https://aiacademy.jp/media/?p=57
 #http://localhost:8000/
 from flask import Flask, request
+import datetime
+import os
 
 app = Flask(__name__, static_folder='.', static_url_path='')
 
@@ -11,6 +13,8 @@ def index():
 @app.route('/StreamingAssets/Utterance', methods=['POST'])
 def updateUtter():
     print('post')
+    
+    dt_now = datetime.datetime.now()
     
     filename = 'StreamingAssets/Utterance/utter.txt'
     utterance = request.form['utterance']
@@ -39,6 +43,20 @@ def updateUtter():
     print(response)
     with open(filename, mode='w', encoding='utf-8') as fout:
         fout.write(response)
+
+    #chat log
+    if message != '' and response != '':
+        filename = 'StreamingAssets/Utterance/chatlog_' + str(dt_now.year).zfill(4) + str(dt_now.month).zfill(2) + str(dt_now.day).zfill(2) + '.txt'
+        print(filename)
+        if os.path.exists(filename):
+            fout = open(filename, "a", encoding = "utf_8")
+        else:
+            fout = open(filename, "w", encoding = "utf_8")
+
+        fout.write("mes:" + message + "\n")
+        fout.write("res:" + response + "\n")
+
+        fout.close()
 
     print('writed!')
 
