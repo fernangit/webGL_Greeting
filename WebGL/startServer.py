@@ -53,8 +53,8 @@ def updateUtter():
         else:
             fout = open(filename, "w", encoding = "utf_8")
 
-        fout.write(dt_now + ":mes:" + message + "\n")
-        fout.write(dt_now + ":res:" + response + "\n")
+        fout.write(dt_now.strftime('%Y/%m/%d %H:%M:%S') + ":mes:" + message + "\n")
+        fout.write(dt_now.strftime('%Y/%m/%d %H:%M:%S') + ":res:" + response + "\n")
 
         fout.close()
 
