@@ -1,2 +1,2 @@
-# webGL_Greeting2
-webGL_Greeting
+# webGL_Greeting
+Greeting unit visual part
